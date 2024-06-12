@@ -49,6 +49,9 @@
 		.charlog--highlight, .charlog--fieldset, .charlog--fieldset-label {
 			background: $color1-light;
 		}
+		
+		// Change the focus hilight style for own messages to differentiate them.
+		border-style: double;
 	}
 }
 

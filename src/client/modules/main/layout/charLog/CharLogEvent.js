@@ -29,11 +29,10 @@ class CharLogEvent {
 		let own = ec && ec.id == charId;
 		div.className = 'ev-' + (ev.type || 'unknown');
 		let subdiv = document.createElement('div');
+		let focusId = (own ? ev.target?.id : ec.id) || ec.id;
+		let focusClass = (opt?.noFocus) ? ' charlog--nofocus' : ec ? ' f-' + charId + '-' + focusId : '';
 		subdiv.className = 'charlog--ev'
-			+ ((opt?.noFocus)
-				? ' charlog--nofocus'
-				: ec ? ' f-' + charId + '-' + ec.id : ''
-			)
+			+ focusClass
 			+ (c.canHighlight && !(opt?.noMessageHighlight)
 				? (own ? ' own' : '')
 				+ (!own && (mod?.triggers?.length || mod?.mentioned) ? ' mentioned' : '')
